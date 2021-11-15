@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Channel;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -12,10 +13,10 @@ class ChannelPolicy
     /**
      * Create a new policy instance.
      *
-     * @return void
+     * @return bool
      */
-    public function __construct()
+    public function update(User $user, Channel $channel)
     {
-        //
+        return $user->id === $channel->user_id;
     }
 }
