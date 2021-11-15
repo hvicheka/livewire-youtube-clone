@@ -25,6 +25,17 @@
             <small class="invalid-feedback">{{ $message }}</small>
             @enderror
         </div>
+        <div class="form-group">
+            <label id="image">Description</label>
+            <input type="file" class="form-control" wire:model="image">
+            @error('image')
+            <small class="invalid-feedback">{{ $message }}</small>
+            @enderror
+            @isset($image)
+                <p>Image Preview:</p>
+                <img src="{{ $image->temporaryUrl() }}" alt="" class="img-fluid">
+            @endisset
+        </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 
