@@ -8,10 +8,15 @@ class Channel extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','description','image'];
+    protected $fillable = ['name', 'description', 'image'];
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
     }
 }
