@@ -1,9 +1,14 @@
 <div class="container">
     <div class="justify-content-center">
         <div class="card">
-            <div class="card-header">Upload Video</div>
+            <div class="card-header">Edit Video</div>
             <div class="card-body">
-                <form>
+                @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
+                <form wire:submit.prevent="update">
                     <div class="form-group">
                         <label id="name">Title</label>
                         <input class="form-control @error('video.title') is-invalid @enderror" name="name" id="name"
@@ -23,6 +28,19 @@
                         <small class="invalid-feedback">{{ $message }}</small>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label id="visibility">Visibility</label>
+                        <select class="form-control @error('video.visibility') is-invalid @enderror" name="visibility"
+                                id="visibility" wire:model="video.visibility">
+                            <option value="private">Private</option>
+                            <option value="public">Public</option>
+                            <option value="unlisted">Unlisted</option>
+                        </select>
+                        @error('video.visibility')
+                        <small class="invalid-feedback">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                 </form>
 
             </div>
