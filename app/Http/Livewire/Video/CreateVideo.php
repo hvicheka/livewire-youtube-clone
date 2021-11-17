@@ -33,11 +33,15 @@ class CreateVideo extends Component
         // validate
         $this->validate();
 
+        // upload video file to temp folder
+        $path = $this->videoFile->store('video-temp');
+
         //create video record in sb
         $video = $this->channel->videos()->create([
             'title' => 'untitled',
             'description' => 'none',
             'visibility' => 'private',
+            'path' => explode('/', $path)[1]
         ]);
 
         //redirect to edit route
