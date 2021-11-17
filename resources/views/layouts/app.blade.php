@@ -61,7 +61,8 @@
                         @endif
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('videos.create',[auth()->user()->channel])}}">
+                            <a class="nav-link"
+                               href="{{ route('videos.create',['channel' => auth()->user()->channel])}}">
                                 <span class="material-icons">video_call</span>
                             </a>
                         </li>
@@ -96,8 +97,9 @@
         @yield('content')
     </main>
 </div>
-<!-- Alpine JS -->
-<script src="//unpkg.com/alpinejs" defer></script>
+
 @livewireScripts
+<!-- Alpine JS -->
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 </body>
 </html>

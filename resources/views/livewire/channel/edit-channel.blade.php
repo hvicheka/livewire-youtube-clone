@@ -20,16 +20,16 @@
         </div>
 
         <div class="form-group">
-            <label id="decription">Description</label>
+            <label id="description">Description</label>
             <textarea class="form-control @error('channel.description') is-invalid @enderror" rows="5"
                       name="description"
-                      id="decription" wire:model="channel.description">{{ $channel->description }}</textarea>
+                      id="description" wire:model="channel.description">{{ $channel->description }}</textarea>
             @error('channel.description')
             <small class="invalid-feedback">{{ $message }}</small>
             @enderror
         </div>
         <div class="form-group">
-            <label id="image">Description</label>
+            <label id="image">Image</label>
             <input type="file" class="form-control" wire:model="image">
             @error('image')
             <small class="invalid-feedback">{{ $message }}</small>
