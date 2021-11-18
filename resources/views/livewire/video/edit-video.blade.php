@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" wire:poll>
     <div class="justify-content-center">
         <div class="card">
             <div class="card-header">Edit Video</div>
@@ -12,6 +12,7 @@
                     <img src="{{ asset($video->thumbnail) }}" width="100"
                          height="100" class="img-thumbnail"
                          alt="No Image">
+                    <a class="text-truncate ml-4">Processing ({{ $video->processing_percentage }})</a>
                 </div>
                 <form wire:submit.prevent="update">
                     <div class="form-group">

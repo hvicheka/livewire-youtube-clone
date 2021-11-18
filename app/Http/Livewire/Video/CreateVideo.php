@@ -5,11 +5,10 @@ namespace App\Http\Livewire\Video;
 use App\Jobs\ConvertVideoForStreaming;
 use App\Jobs\CreateThumbnailFromVideo;
 use App\Models\Channel;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class CreateVideo extends Component implements ShouldQueue
+class CreateVideo extends Component
 {
     use WithFileUploads;
 
