@@ -8,6 +8,11 @@
                         {{ session('message') }}
                     </div>
                 @endif
+                <div class="mb-3">
+                    <img src="{{ asset($video->thumbnail) }}" width="100"
+                         height="100" class="img-thumbnail"
+                         alt="No Image">
+                </div>
                 <form wire:submit.prevent="update">
                     <div class="form-group">
                         <label id="name">Title</label>
