@@ -21,6 +21,9 @@
                         <div class="col-md-2">
                             <a href="{{ route('videos.edit',['channel' => auth()->user()->channel,'video' => $video]) }}"
                                class="btn btn-sm btn-primary">Edit</a>
+                            @if(auth()->user()->owns($video))
+                                <a wire:click="delete({{$video}})" class="btn btn-sm btn-danger">Delete</a>
+                            @endif
                         </div>
                     </div>
                 </div>
