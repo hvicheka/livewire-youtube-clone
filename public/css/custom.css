@@ -3,3 +3,7 @@
     height: 690px;
     position: relative;
 }
+
+.voting-button {
+    cursor: pointer;
+}

@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            Voting
+                            <livewire:video.voting :video="$video"/>
                         </div>
                     </div>
                 </div>
