@@ -9,6 +9,10 @@ class WatchVideo extends Component
 {
     public $video;
 
+    protected $listeners = [
+        'VideoViewed' => 'countView'
+    ];
+
     public function mount(Video $video)
     {
         $this->video = $video;
@@ -19,5 +23,10 @@ class WatchVideo extends Component
         return view('livewire.video.watch-video')
             ->extends('layouts.app');
 
+    }
+
+    public function countView()
+    {
+        $this->video->increment('views', 1);
     }
 }

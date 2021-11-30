@@ -11,7 +11,7 @@
                         <div class="col-md-12">
                             <div class="video-container">
                                 <div class="video-container">
-                                    <video controls preload="auto" id="yt-video"
+                                    <video controls preload="auto" id="yt-video" wire:ignore
                                            class="video-js vjs-fill vjs-styles=defaults vjs-big-play-centered"
                                            data-setup="{}">
                                         <source src="{{ asset('videos/'. $video->id . '/' . $video->processed_file)}}"
@@ -37,5 +37,14 @@
 @push('js')
     <!-- Videojs -->
     <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+    <script>
+        const player = videojs('yt-video')
+        player.on('timeupdate', function () {
+            if (this.currentTime() > 0) {
+                this.off('timeupdate')
+                Livewire.emit('VideoViewed')
+            }
+        })
+    </script>
 @endpush
 
