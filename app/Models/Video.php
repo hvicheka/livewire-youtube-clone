@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class Video extends Model
 {
@@ -21,5 +22,16 @@ class Video extends Model
             return '/videos/' . $this->id . '/' . $this->thumbnail_image;
         }
         return 'no-thumbnail.jpg';
+    }
+
+    public function getFormattedViewsAttribute()
+    {
+        $count = $this->views <= 1 ? 1 : $this->views;
+        return $this->views . ' ' . Str::plural(' view', $count);
+    }
+
+    public function getFormattedDateAttribute()
+    {
+        return $this->created_at->format('Y-m-d');
     }
 }

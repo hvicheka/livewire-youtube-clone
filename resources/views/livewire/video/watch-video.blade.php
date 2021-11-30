@@ -1,6 +1,7 @@
 @push('css')
     <!-- Videojs -->
     <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endpush
 <div>
     <div class="container">
@@ -11,7 +12,7 @@
                         <div class="col-md-12">
                             <div class="video-container">
                                 <div class="video-container">
-                                    <video controls preload="auto" id="yt-video" wire:ignore
+                                    <video controls preload="auto" id="yt-video"
                                            class="video-js vjs-fill vjs-styles=defaults vjs-big-play-centered"
                                            data-setup="{}">
                                         <source src="{{ asset('videos/'. $video->id . '/' . $video->processed_file)}}"
@@ -26,6 +27,19 @@
                                     </video>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-8">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h3>{{ $video->title }}</h3>
+                                    <p>{{ $video->formatted_views  }} | {{ $video->formatted_date }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            Voting
                         </div>
                     </div>
                 </div>
