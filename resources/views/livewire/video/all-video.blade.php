@@ -5,8 +5,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="{{ $video->thumbnail }}" class="img-thumbnail" width="100" height="100"
-                                 alt="No Image">
+                            <a href="{{ route('videos.watch',$video) }}">
+                                <img src="{{ $video->thumbnail }}" class="img-thumbnail" width="100" height="100"
+                                     alt="No Image">
+                            </a>
                         </div>
                         <div class="col-md-3">
                             <h5>{{ $video->title }}</h5>

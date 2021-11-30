@@ -19,10 +19,13 @@
     <!-- material icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <!-- Custom Styles -->
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+    @stack('css')
     @livewireStyles
 </head>
 <body>
@@ -107,5 +110,6 @@
 @livewireScripts
 <!-- Alpine JS -->
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+@stack('js')
 </body>
 </html>
