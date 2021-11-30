@@ -14,7 +14,7 @@ class AddViewsToVideosTable extends Migration
     public function up()
     {
         Schema::table('videos', function (Blueprint $table) {
-            $table->integer('views')->after('description');
+            $table->integer('views')->after('description')->default(0);
         });
     }
 
