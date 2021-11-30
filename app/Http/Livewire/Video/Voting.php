@@ -11,6 +11,7 @@ class Voting extends Component
 
     public function mount(Video $video)
     {
+        $video->loadCount(['likes', 'dislikes']);
         $this->video = $video;
     }
 
