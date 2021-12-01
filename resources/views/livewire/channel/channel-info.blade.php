@@ -5,7 +5,7 @@
                 <img src="{{ asset($channel->thumbnail) }}" alt="" class="rounded-circle" width="70" height="70">
                 <div class="ml-3 mt-3">
                     <h5>{{ $channel->name }}</h5>
-                    <p>{{ $channel->subscriptions_count }} Subscribers</p>
+                    <p>{{ $channel->subscriber_count }}</p>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class Channel extends Model
 {
@@ -37,5 +38,11 @@ class Channel extends Model
             return '/images/' . $this->image;
         }
         return 'no-thumbnail.jpg';
+    }
+
+    public function getSubscriberCountAttribute()
+    {
+        $subscriber_count = $this->subscriptions->count();
+        return $subscriber_count . ' ' . Str::plural('subscriber', $subscriber_count <= 1 ? 1 : $subscriber_count);
     }
 }
