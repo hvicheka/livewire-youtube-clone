@@ -26,6 +26,16 @@ class Video extends Model
         return $this->hasMany(Dislike::class);
     }
 
+    public function liked()
+    {
+        return $this->likes()->where('user_id', '=', auth()->id())->exists();
+    }
+
+    public function disliked()
+    {
+        return $this->dislikes()->where('user_id', '=', auth()->id())->exists();
+    }
+
     public function getThumbnailAttribute()
     {
         if ($this->thumbnail_image) {
@@ -44,4 +54,5 @@ class Video extends Model
     {
         return $this->created_at->format('Y-m-d');
     }
+
 }
