@@ -43,9 +43,9 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="row mt-2">
-                        <livewire:channel.channel-info :channel="$video->channel"/>
-                    </div>
+
+                    <livewire:channel.channel-info :channel="$video->channel"/>
+
                 </div>
             </div>
         </div>
