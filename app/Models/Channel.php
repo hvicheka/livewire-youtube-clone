@@ -19,4 +19,12 @@ class Channel extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    public function getThumbnailAttribute()
+    {
+        if ($this->image) {
+            return '/images/' . $this->image;
+        }
+        return 'no-thumbnail.jpg';
+    }
 }

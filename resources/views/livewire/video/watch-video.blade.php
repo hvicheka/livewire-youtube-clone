@@ -38,9 +38,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-4">
                             <livewire:video.voting :video="$video"/>
                         </div>
+                    </div>
+                    <hr>
+                    <div class="row mt-2">
+                        <livewire:channel.channel-info :channel="$video->channel"/>
                     </div>
                 </div>
             </div>
