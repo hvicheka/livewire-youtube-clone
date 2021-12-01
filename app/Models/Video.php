@@ -26,6 +26,11 @@ class Video extends Model
         return $this->hasMany(Dislike::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function liked()
     {
         return $this->likes()->where('user_id', '=', auth()->id())->exists();

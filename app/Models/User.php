@@ -57,6 +57,11 @@ class User extends Authenticatable
         return $this->hasOne(Channel::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function owns(Video $video)
     {
         return auth()->user()->id === $video->channel->user_id;
